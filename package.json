@@ -15,11 +15,11 @@
   "license": "ISC",
   "packageManager": "pnpm@10.26.0",
   "dependencies": {
-    "@nitramburesh/wcds": "file:.yalc/@nitramburesh/wcds",
-    "lit": "^3.3.2"
+    "@nitramburesh/wcds": "file:.yalc/@nitramburesh/wcds"
   },
   "devDependencies": {
     "elm-format": "^0.8.7",
+    "lit": "^3.3.2",
     "vite": "^7.3.1",
     "vite-plugin-elm-watch": "^1.4.4"
   }

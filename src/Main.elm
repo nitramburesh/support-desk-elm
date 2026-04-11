@@ -1,11 +1,16 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, a, div, h1, h2, h3, node, p, span, strong, text)
-import Html.Attributes exposing (attribute, class, href)
+import Html exposing (Html, a, div, h1, h2, h3, p, span, strong, text)
+import Html.Attributes exposing (class, href)
 import Html.Events exposing (onClick)
 
-
+import Components.WCDSAvatar as WCDSAvatar
+import Components.WCDSBadge as WCDSBadge
+import Components.WCDSButton as WCDSButton
+import Components.WCDSCard as WCDSCard
+import Components.WCDSIcon as WCDSIcon
+import Components.WCDSInput as WCDSInput
 
 ---- MODEL ----
 
@@ -106,7 +111,10 @@ viewTopHeader : Html Msg
 viewTopHeader =
     div [ class "top-header" ]
         [ h1 [] [ text "Ticket Dashboard" ]
-        , node "wcds-button" [ attribute "variant" "ghost" ] [ wcdsIcon "menu" ]
+        , WCDSButton.view
+            [ WCDSButton.variant WCDSButton.Ghost , WCDSButton.iconLeft WCDSButton.Menu ]
+            []
+
         ]
 
 
@@ -124,28 +132,39 @@ viewSupportHeader : Html Msg
 viewSupportHeader =
     div [ class "support-header" ]
         [ h2 [] [ text "Support Center" ]
-        , wcdsAvatar "https://i.pravatar.cc/100?img=9" "User"
+        , WCDSAvatar.view
+            [ WCDSAvatar.src "https://i.pravatar.cc/100?img=9"
+            , WCDSAvatar.name "User"
+            , WCDSAvatar.size WCDSAvatar.Sm
+            ]
+            []
         ]
 
 
 viewSearchSection : Html Msg
 viewSearchSection =
-    div [ class "search-section" ] [ wcdsInput "Search help articles or tickets" "search" ]
+    div [ class "search-section" ]
+        [ WCDSInput.view
+            [ WCDSInput.placeholder "Search help articles or tickets"
+            , WCDSInput.icon WCDSInput.Search
+            ]
+        ]
 
 
 viewActionCards : Html Msg
 viewActionCards =
     div [ class "action-cards" ]
-        [ viewActionCard "blue" "check" "Open New Ticket"
-        , viewActionCard "gray" "menu" "My Conversations"
-        , viewActionCard "orange" "search" "Knowledge Base"
+        [ viewActionCard "blue" WCDSIcon.Check "Open New Ticket"
+        , viewActionCard "gray" WCDSIcon.Menu "My Conversations"
+        , viewActionCard "orange" WCDSIcon.Search "Knowledge Base"
         ]
 
 
-viewActionCard : String -> String -> String -> Html Msg
-viewActionCard colorClass iconName label =
+viewActionCard : String -> WCDSIcon.Icon -> String -> Html Msg
+viewActionCard colorClass iconValue label =
     div [ class "action-card" ]
-        [ div [ class ("action-card-icon " ++ colorClass) ] [ wcdsIcon iconName ]
+        [ div [ class ("action-card-icon " ++ colorClass) ]
+            [ WCDSIcon.view [ WCDSIcon.icon iconValue ] ]
         , span [ class "action-card-label" ] [ text label ]
         ]
 
@@ -164,16 +183,22 @@ viewRecentActivity tickets =
 
 viewActivityCard : Ticket -> Html Msg
 viewActivityCard ticket =
-    wcdsCard
-        [ div [ attribute "slot" "header" ] [ wcdsAvatar ticket.avatar ticket.name ]
+    WCDSCard.view []
+        [ WCDSCard.header
+            [ WCDSAvatar.view
+                [ WCDSAvatar.src ticket.avatar
+                , WCDSAvatar.name ticket.name
+                , WCDSAvatar.size WCDSAvatar.Sm
+                ]
+                []
+            ]
         , div [ class "activity-content" ]
             [ strong [] [ text ticket.name ]
             , p [ class "activity-message" ] [ text ticket.message ]
             , viewStatus ticket.status
             ]
-        , div [ attribute "slot" "footer" ]
-            [ span [ class "activity-time" ] [ text ticket.time ]
-            ]
+        , WCDSCard.footer
+            [ span [ class "activity-time" ] [ text ticket.time ] ]
         ]
 
 
@@ -181,23 +206,23 @@ viewStatus : TicketStatus -> Html Msg
 viewStatus status =
     case status of
         WaitingForAgent ->
-            wcdsBadge "warning" "WAITING FOR AGENT"
+            WCDSBadge.view [ WCDSBadge.variant WCDSBadge.Warning ] [ text "WAITING FOR AGENT" ]
 
         Resolved ->
-            wcdsBadge "success" "RESOLVED"
+            WCDSBadge.view [ WCDSBadge.variant WCDSBadge.Success ] [ text "RESOLVED" ]
 
 
 viewBottomNav : NavItem -> Html Msg
 viewBottomNav activeNav =
     div [ class "bottom-nav" ]
-        [ viewNavItem Home "search" "Home" (activeNav == Home)
-        , viewNavItem Inbox "menu" "Inbox" (activeNav == Inbox)
-        , viewNavItem Profile "check" "Profile" (activeNav == Profile)
+        [ viewNavItem Home WCDSIcon.Search "Home" (activeNav == Home)
+        , viewNavItem Inbox WCDSIcon.Menu "Inbox" (activeNav == Inbox)
+        , viewNavItem Profile WCDSIcon.Check "Profile" (activeNav == Profile)
         ]
 
 
-viewNavItem : NavItem -> String -> String -> Bool -> Html Msg
-viewNavItem navItem iconName label isActive =
+viewNavItem : NavItem -> WCDSIcon.Icon -> String -> Bool -> Html Msg
+viewNavItem navItem iconValue label isActive =
     div
         [ class
             (if isActive then
@@ -208,62 +233,13 @@ viewNavItem navItem iconName label isActive =
             )
         , onClick (SetNavItem navItem)
         ]
-        [ wcdsIcon iconName
+        [ WCDSIcon.view [ WCDSIcon.icon iconValue ]
         , span [] [ text label ]
         ]
 
 
 
----- WCDS COMPONENTS ----
 
-
-wcdsButton : String -> String -> String -> Html Msg
-wcdsButton variant colorScheme iconName =
-    node "wcds-button"
-        [ attribute "variant" variant
-        , attribute "color-scheme" colorScheme
-        ]
-        [ wcdsIcon iconName ]
-
-
-wcdsInput : String -> String -> Html Msg
-wcdsInput placeholderText iconName =
-    node "wcds-input"
-        [ attribute "placeholder" placeholderText
-        , attribute "icon" iconName
-        ]
-        []
-
-
-wcdsIcon : String -> Html Msg
-wcdsIcon iconName =
-    node "wcds-icon"
-        [ attribute "icon" iconName ]
-        []
-
-
-wcdsAvatar : String -> String -> Html Msg
-wcdsAvatar src name =
-    node "wcds-avatar"
-        [ attribute "src" src
-        , attribute "name" name
-        , attribute "size" "sm"
-        ]
-        []
-
-
-wcdsBadge : String -> String -> Html Msg
-wcdsBadge variant label =
-    node "wcds-badge"
-        [ attribute "variant" variant
-        , attribute "size" "sm"
-        ]
-        [ span [] [ text label ] ]
-
-
-wcdsCard : List (Html Msg) -> Html Msg
-wcdsCard =
-    node "wcds-card" []
 
 
 
