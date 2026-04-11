@@ -1,0 +1,63 @@
+{
+  "name": "@nitramburesh/wcds",
+  "version": "0.3.15",
+  "description": "Web component design system",
+  "main": "./dist/wcds.js",
+  "module": "./dist/wcds.js",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "sideEffects": true,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/wcds.js"
+    },
+    "./style": "./dist/wcds.css",
+    "./package.json": "./package.json",
+    "./custom-elements.json": "./custom-elements.json"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE",
+    "custom-elements.json"
+  ],
+  "scripts": {
+    "generate-tokens": "node src/tokens/build-tokens.js",
+    "manifest": "pnpm cem analyze",
+    "typecheck:build": "tsc -p tsconfig.build.json",
+    "dev": "pnpm prepare && storybook dev -p 6060",
+    "build": "pnpm prepare && pnpm typecheck:build && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:browser": "vitest run --project browser",
+    "test:install-browsers": "playwright install chromium",
+    "test:storybook": "vitest run --project storybook",
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --force-rebuild",
+    "prepack": "pnpm run build",
+    "release:npm": "bash ./scripts/release-npm.sh",
+    "release:npm:local": "bash ./scripts/release-npm.sh --local-publish",
+    "pack": "npm pack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitramburesh/WCDS.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "nitramburesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nitramburesh/WCDS/issues"
+  },
+  "homepage": "https://github.com/nitramburesh/WCDS#readme",
+  "packageManager": "pnpm@10.19.0+sha512.c9fc7236e92adf5c8af42fd5bf1612df99c2ceb62f27047032f4720b33f8eacdde311865e91c411f2774f618d82f320808ecb51718bfa82c060c4ba7c76a32b8",
+  "peerDependencies": {
+    "lit": "^3.3.1"
+  },
+  "customElements": "custom-elements.json",
+  "yalcSig": "abbd345b8732a3f30271c3e6882fda15"
+}

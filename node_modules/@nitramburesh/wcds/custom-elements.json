@@ -1,0 +1,1211 @@
+{
+  "schemaVersion": "2.1.0",
+  "readme": "./README.md",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "./dist/wcds.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WCDSAvatar",
+          "cssProperties": [
+            {
+              "description": "Overall size of the avatar.",
+              "name": "--wcds-avatar-size"
+            },
+            {
+              "description": "Border radius for the avatar shape.",
+              "name": "--wcds-avatar-radius"
+            },
+            {
+              "description": "Background color for fallback initials.",
+              "name": "--wcds-avatar-bg"
+            },
+            {
+              "description": "Text color for fallback initials.",
+              "name": "--wcds-avatar-fg"
+            },
+            {
+              "description": "Font size for fallback initials.",
+              "name": "--wcds-avatar-font-size"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Avatar content (overrides initials fallback when provided).",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "src",
+              "type": {
+                "text": "string | undefined"
+              },
+              "attribute": "src"
+            },
+            {
+              "kind": "field",
+              "name": "alt",
+              "type": {
+                "text": "string | undefined"
+              },
+              "attribute": "alt"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string | undefined"
+              },
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "AvatarVariant"
+              },
+              "default": "'circular'",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "Size"
+              },
+              "default": "'md'",
+              "attribute": "size",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "imageError",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "handleError",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "fallbackText",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "readonly": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "src",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "src"
+            },
+            {
+              "name": "alt",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "alt"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "name"
+            },
+            {
+              "name": "variant",
+              "type": {
+                "text": "AvatarVariant"
+              },
+              "default": "'circular'",
+              "fieldName": "variant"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "Size"
+              },
+              "default": "'md'",
+              "fieldName": "size"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wcds-avatar",
+          "customElement": true,
+          "summary": "User avatar with image or initials and Material-like shapes."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WCDSAvatar",
+          "declaration": {
+            "name": "WCDSAvatar",
+            "module": "src/components/avatar.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-avatar",
+          "declaration": {
+            "name": "WCDSAvatar",
+            "module": "src/components/avatar.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "AvatarVariant",
+          "declaration": {
+            "name": "AvatarVariant",
+            "module": "../types"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Size",
+          "declaration": {
+            "name": "Size",
+            "module": "../types"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "./dist/wcds.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WCDSBadge",
+          "cssProperties": [
+            {
+              "description": "Inner padding.",
+              "name": "--wcds-badge-padding"
+            },
+            {
+              "description": "Border radius.",
+              "name": "--wcds-badge-radius"
+            },
+            {
+              "description": "Font size.",
+              "name": "--wcds-badge-font-size"
+            },
+            {
+              "description": "Background color.",
+              "name": "--wcds-badge-bg"
+            },
+            {
+              "description": "Text color.",
+              "name": "--wcds-badge-fg"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Badge text/content.",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "'info' | 'success' | 'warning' | 'error'"
+              },
+              "default": "'info'",
+              "attribute": "variant",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "'info' | 'success' | 'warning' | 'error'"
+              },
+              "default": "'info'",
+              "fieldName": "variant"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wcds-badge",
+          "customElement": true,
+          "summary": "Small status badge with four variants."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WCDSBadge",
+          "declaration": {
+            "name": "WCDSBadge",
+            "module": "src/components/badge.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-badge",
+          "declaration": {
+            "name": "WCDSBadge",
+            "module": "src/components/badge.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "./dist/wcds.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WCDSButton",
+          "cssProperties": [
+            {
+              "description": "Padding inside the button.",
+              "name": "--wcds-button-padding"
+            },
+            {
+              "description": "Border radius of the button.",
+              "name": "--wcds-button-radius"
+            },
+            {
+              "description": "Font size of the button label.",
+              "name": "--wcds-button-font-size"
+            },
+            {
+              "description": "Background color of the button.",
+              "name": "--wcds-button-bg-color"
+            },
+            {
+              "description": "Text color of the button.",
+              "name": "--wcds-button-fg-color"
+            },
+            {
+              "description": "Border color of the button.",
+              "name": "--wcds-button-border-color"
+            },
+            {
+              "description": "Size of icons inside the button.",
+              "name": "--wcds-button-icon-size"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The button's label or content.",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "id",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "id",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "Size"
+              },
+              "default": "'md'",
+              "attribute": "size",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "ButtonVariant"
+              },
+              "default": "'solid'",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "colorScheme",
+              "type": {
+                "text": "ColorScheme"
+              },
+              "default": "'primary'",
+              "attribute": "colorScheme",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "type",
+              "type": {
+                "text": "ButtonType"
+              },
+              "default": "'button'",
+              "attribute": "type",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "iconLeft",
+              "type": {
+                "text": "Icon | undefined"
+              },
+              "attribute": "iconLeft"
+            },
+            {
+              "kind": "field",
+              "name": "iconRight",
+              "type": {
+                "text": "Icon | undefined"
+              },
+              "attribute": "iconRight"
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "handleClick",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "MouseEvent"
+                  }
+                }
+              ]
+            }
+          ],
+          "events": [
+            {
+              "name": "click",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Emitted when the button is clicked."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "id",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "id"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "Size"
+              },
+              "default": "'md'",
+              "fieldName": "size"
+            },
+            {
+              "name": "variant",
+              "type": {
+                "text": "ButtonVariant"
+              },
+              "default": "'solid'",
+              "fieldName": "variant"
+            },
+            {
+              "name": "colorScheme",
+              "type": {
+                "text": "ColorScheme"
+              },
+              "default": "'primary'",
+              "fieldName": "colorScheme"
+            },
+            {
+              "name": "type",
+              "type": {
+                "text": "ButtonType"
+              },
+              "default": "'button'",
+              "fieldName": "type"
+            },
+            {
+              "name": "iconLeft",
+              "type": {
+                "text": "Icon | undefined"
+              },
+              "fieldName": "iconLeft"
+            },
+            {
+              "name": "iconRight",
+              "type": {
+                "text": "Icon | undefined"
+              },
+              "fieldName": "iconRight"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wcds-button",
+          "customElement": true,
+          "summary": "A customizable button component with support for icons and various styles."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WCDSButton",
+          "declaration": {
+            "name": "WCDSButton",
+            "module": "src/components/button.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-button",
+          "declaration": {
+            "name": "WCDSButton",
+            "module": "src/components/button.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ButtonType",
+          "declaration": {
+            "name": "ButtonType",
+            "module": "../types"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ButtonVariant",
+          "declaration": {
+            "name": "ButtonVariant",
+            "module": "../types"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ColorScheme",
+          "declaration": {
+            "name": "ColorScheme",
+            "module": "../types"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Icon",
+          "declaration": {
+            "name": "Icon",
+            "module": "../types"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Size",
+          "declaration": {
+            "name": "Size",
+            "module": "../types"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "./dist/wcds.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WCDSCard",
+          "cssProperties": [
+            {
+              "description": "Padding inside the card.",
+              "name": "--wcds-card-padding"
+            },
+            {
+              "description": "Border radius of the card.",
+              "name": "--wcds-card-radius"
+            },
+            {
+              "description": "Background color.",
+              "name": "--wcds-card-bg-color"
+            },
+            {
+              "description": "Border color (outlined/plain).",
+              "name": "--wcds-card-border-color"
+            },
+            {
+              "description": "Box shadow (elevated).",
+              "name": "--wcds-card-shadow"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Optional header content (title, actions).",
+              "name": "header"
+            },
+            {
+              "description": "Default body content.",
+              "name": ""
+            },
+            {
+              "description": "Optional footer content (buttons, meta).",
+              "name": "footer"
+            }
+          ],
+          "members": [],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wcds-card",
+          "customElement": true,
+          "summary": "Container card with header/body/footer slots, size and variant styles."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WCDSCard",
+          "declaration": {
+            "name": "WCDSCard",
+            "module": "src/components/card.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-card",
+          "declaration": {
+            "name": "WCDSCard",
+            "module": "src/components/card.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "./dist/wcds.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WCDSColor",
+          "members": [
+            {
+              "kind": "field",
+              "name": "color",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "color"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "name"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "color",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "color"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "name"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wcds-color",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WCDSColor",
+          "declaration": {
+            "name": "WCDSColor",
+            "module": "src/components/color.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-color",
+          "declaration": {
+            "name": "WCDSColor",
+            "module": "src/components/color.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "./dist/wcds.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WCDSIcon",
+          "members": [
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "Icon"
+              },
+              "attribute": "icon",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "Size"
+              },
+              "default": "'md'",
+              "attribute": "size"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "type": {
+                "text": "Icon"
+              },
+              "fieldName": "icon"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "Size"
+              },
+              "default": "'md'",
+              "fieldName": "size"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wcds-icon",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WCDSIcon",
+          "declaration": {
+            "name": "WCDSIcon",
+            "module": "src/components/icon.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-icon",
+          "declaration": {
+            "name": "WCDSIcon",
+            "module": "src/components/icon.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Icon",
+          "declaration": {
+            "name": "Icon",
+            "module": "../types"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Size",
+          "declaration": {
+            "name": "Size",
+            "module": "../types"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/button"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/input"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/icon"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/card"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/badge"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/avatar"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "./dist/wcds.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WCDSInput",
+          "cssProperties": [
+            {
+              "description": "Padding inside the input field.",
+              "name": "--wcds-input-padding"
+            },
+            {
+              "description": "Border radius of the input field.",
+              "name": "--wcds-input-border-radius"
+            },
+            {
+              "description": "Border color of the input field.",
+              "name": "--wcds-input-border-color-default"
+            },
+            {
+              "description": "Outline color of the input field on focus.",
+              "name": "--wcds-input-border-color-focus"
+            },
+            {
+              "description": "Box shadow of the input field on focus.",
+              "name": "--wcds-input-box-shadow"
+            },
+            {
+              "description": "Color of the input icon (defaults to neutral).",
+              "name": "--wcds-input-icon-color"
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "id",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "id",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "attribute": "value",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "Size"
+              },
+              "default": "'md'",
+              "attribute": "size",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "type": {
+                "text": "string | undefined"
+              },
+              "attribute": "label"
+            },
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "type": {
+                "text": "string | undefined"
+              },
+              "attribute": "placeholder"
+            },
+            {
+              "kind": "field",
+              "name": "icon",
+              "type": {
+                "text": "Icon | undefined"
+              },
+              "attribute": "icon",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "error",
+              "type": {
+                "text": "string | undefined"
+              },
+              "attribute": "error",
+              "reflects": true
+            },
+            {
+              "kind": "method",
+              "name": "_hasIcon",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "_onInput",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "event",
+                  "type": {
+                    "text": "Event"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_onChange",
+              "privacy": "private"
+            }
+          ],
+          "events": [
+            {
+              "name": "input",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Emitted on input with { value }."
+            },
+            {
+              "name": "clear-error",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Emitted when the user starts typing to clear existing errors."
+            },
+            {
+              "name": "change",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Emitted on blur with { value }."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "id",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "id"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "value"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "Size"
+              },
+              "default": "'md'",
+              "fieldName": "size"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "label"
+            },
+            {
+              "name": "placeholder",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "placeholder"
+            },
+            {
+              "name": "icon",
+              "type": {
+                "text": "Icon | undefined"
+              },
+              "fieldName": "icon"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "error",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "error"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wcds-input",
+          "customElement": true,
+          "summary": "A customizable input component with label, icons, validation, and error display."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WCDSInput",
+          "declaration": {
+            "name": "WCDSInput",
+            "module": "src/components/input.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-input",
+          "declaration": {
+            "name": "WCDSInput",
+            "module": "src/components/input.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Icon",
+          "declaration": {
+            "name": "Icon",
+            "module": "../types"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Size",
+          "declaration": {
+            "name": "Size",
+            "module": "../types"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "./dist/wcds.js",
+      "deprecated": false,
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-avatar",
+          "declaration": {
+            "name": "WCDSAvatar",
+            "module": "./dist/wcds.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "./dist/wcds.js",
+      "deprecated": false,
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-badge",
+          "declaration": {
+            "name": "WCDSBadge",
+            "module": "./dist/wcds.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "./dist/wcds.js",
+      "deprecated": false,
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-button",
+          "declaration": {
+            "name": "WCDSButton",
+            "module": "./dist/wcds.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "./dist/wcds.js",
+      "deprecated": false,
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-card",
+          "declaration": {
+            "name": "WCDSCard",
+            "module": "./dist/wcds.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "./dist/wcds.js",
+      "deprecated": false,
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-color",
+          "declaration": {
+            "name": "WCDSColor",
+            "module": "./dist/wcds.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "./dist/wcds.js",
+      "deprecated": false,
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-icon",
+          "declaration": {
+            "name": "WCDSIcon",
+            "module": "./dist/wcds.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "./dist/wcds.js",
+      "deprecated": false,
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-input",
+          "declaration": {
+            "name": "WCDSInput",
+            "module": "./dist/wcds.js"
+          }
+        }
+      ]
+    }
+  ]
+}

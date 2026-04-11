@@ -1,0 +1,7 @@
+{
+  "[elm]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "elmTooling.elm-ls-vscode"
+  },
+  "elmLS.elmFormatPath": "./node_modules/.bin/elm-format"
+}

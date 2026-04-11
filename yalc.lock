@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "@nitramburesh/wcds": {
+      "signature": "abbd345b8732a3f30271c3e6882fda15",
+      "file": true
+    }
+  }
+}

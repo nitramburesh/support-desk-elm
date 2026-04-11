@@ -1,0 +1,26 @@
+{
+  "name": "support-desk-elm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "format": "elm-format src/ --yes",
+    "format:check": "elm-format src/ --validate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.26.0",
+  "dependencies": {
+    "@nitramburesh/wcds": "file:.yalc/@nitramburesh/wcds",
+    "lit": "^3.3.2"
+  },
+  "devDependencies": {
+    "elm-format": "^0.8.7",
+    "vite": "^7.3.1",
+    "vite-plugin-elm-watch": "^1.4.4"
+  }
+}
