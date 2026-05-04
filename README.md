@@ -4,7 +4,7 @@ A small demo app built with Elm and Vite that showcases a set of WCDS components
 
 ## Prerequisites
 
-- Node.js (16+ recommended)
+- Node.js (22+ recommended)
 - pnpm (project uses `pnpm` as package manager; npm or yarn can be used as alternative)
 
 ## Install
